@@ -1,0 +1,131 @@
+body {
+    font-family: "Helvetica", sans-serif;
+    color: #FFFFFF;
+}
+
+.cv {
+    width: 1127px;
+    height: 595px;
+    background: #444444;
+    display: flex;
+    border-radius: 30px;
+}
+
+.resume {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.wrapper {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 70px;
+}
+
+.avatar {
+    align-self: center;
+}
+
+.ava {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+}
+
+.shad {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: #C4C4C4;
+    border-radius: 50%;
+    margin: 12px;
+    opacity: 0.2;
+}
+
+.about {
+    text-align: center;
+}
+
+header {
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 44px;
+    margin-top: 30px;
+}
+
+.annotation {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.social {
+    margin: 3px;
+    display: flex;
+    align-self: center;
+}
+
+.telegram, .twitter, .github {
+    width: 24px;
+    height: 24px;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.downloading-cv {
+    margin: 40px;
+    width: 168px;
+    height: 46px;
+    border-radius: 40px;
+    background: #444444;
+    color: #FFFFFF;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 20px;
+    border: 3px solid #FFFFFF;
+    align-self: center;
+}
+
+.copyrights {
+    font-size: 14px;
+    margin-top: 5%;
+    align-self: center;
+}
+
+.cv-card {
+    width: 747px;
+    height: 595px;
+    background: #222222;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main {
+    text-align: center;
+    align-self: center;
+}
+
+.cv-name {
+    font-weight: bold;
+    font-size: 62px;
+    line-height: 71px;
+    margin: 10px;
+}
+
+.prof {
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 25px;
+    margin: 0;
+}
+
+
