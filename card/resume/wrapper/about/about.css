@@ -1,0 +1,6 @@
+@import "__name/about__name.css";
+@import "__annotation/about__annotation.css";
+
+.about {
+    text-align: center;
+}

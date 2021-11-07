@@ -1,0 +1,6 @@
+.avatar__image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    box-shadow: 13px 13px var(--color-shadow);
+}

@@ -1,0 +1,6 @@
+.download-cv__text {
+    font-size: 17px;
+    line-height: 20px;
+    color: var(--color-text);
+    text-decoration: none;
+}

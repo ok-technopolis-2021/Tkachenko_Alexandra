@@ -1,0 +1,9 @@
+@import "wrapper/wrapper.css";
+@import "__copyrights";
+
+.resume {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

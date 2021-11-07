@@ -1,0 +1,22 @@
+@import "__text/download-cv__text.css";
+
+.download-cv {
+    margin: 40px;
+    width: 168px;
+    height: 46px;
+    border: 3px solid var(--color-text);
+    border-radius: 40px;
+    background: var(--color-body-background);
+    align-self: center;
+    overflow: hidden;
+    transition-duration: 0.4s;
+}
+
+.download-cv:hover {
+    box-shadow: 0 2px 10px 5px var(--color-shadow);
+    background: rgb(222, 112, 97);
+}
+
+.download-cv:active {
+    background: rgb(238, 169, 160);
+}

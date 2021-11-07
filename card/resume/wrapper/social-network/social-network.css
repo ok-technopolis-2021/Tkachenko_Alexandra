@@ -1,0 +1,11 @@
+.social-network {
+    margin: 3px;
+    display: flex;
+    align-self: center;
+}
+
+.social-network__telegram, .social-network__twitter, .social-network__github {
+    width: 24px;
+    height: 24px;
+    margin: 5px;
+}

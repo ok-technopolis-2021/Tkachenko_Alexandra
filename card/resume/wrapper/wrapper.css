@@ -1,0 +1,12 @@
+@import "avatar/avatar.css";
+@import "about/about.css";
+@import "download-cv/download-cv.css";
+@import "social-network/social-network.css";
+
+.wrapper {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 60px;
+}

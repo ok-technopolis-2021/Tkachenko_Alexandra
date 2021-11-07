@@ -1,0 +1,7 @@
+@import "__name/data__name.css";
+@import "__profession/data__profession.css";
+
+.data {
+    text-align: center;
+    align-self: center;
+}
