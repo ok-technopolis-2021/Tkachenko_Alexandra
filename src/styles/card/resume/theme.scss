@@ -1,0 +1,17 @@
+:root {
+  --color-text: #FFFFFF;
+  --color-body-background: #444444;
+  --color-body-main: #222222;
+  --color-shadow: #c4c4c4;
+  --color-skill-progress: #e788a5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #2d2b2b;
+    --color-body-background: #c8c7c7;
+    --color-body-main: #9d9d9d;
+    --color-shadow: #acaaaa;
+    --color-skill-progress: #e5c4a7;
+  }
+}

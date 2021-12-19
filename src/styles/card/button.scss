@@ -1,0 +1,14 @@
+.button {
+  border: 3px solid var(--color-text);
+  border-radius: 40px;
+  background: var(--color-body-background);
+}
+
+.button:hover {
+  box-shadow: 0 2px 10px 5px var(--color-shadow);
+  background: rgb(222, 112, 97);
+}
+
+.button:active {
+  background: rgb(238, 169, 160);
+}
