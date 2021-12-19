@@ -15,14 +15,13 @@
     color: var(--color-text);
     text-decoration: none;
   }
-
-  .download-cv:hover {
-    box-shadow: 0 2px 10px 5px var(--color-shadow);
-    background: rgb(222, 112, 97);
-  }
-
-  .download-cv:active {
-    background: rgb(238, 169, 160);
-  }
 }
 
+.download-cv:hover {
+  box-shadow: 0 2px 10px 5px var(--color-shadow);
+  background: rgb(222, 112, 97);
+}
+
+.download-cv:active {
+  background: rgb(238, 169, 160);
+}
