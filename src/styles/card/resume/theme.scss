@@ -1,0 +1,15 @@
+:root {
+  --color-text: #FFFFFF;
+  --color-body-background: #444444;
+  --color-bogy-main: #222222;
+  --color-shadow: #c4c4c4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #2d2b2b;
+    --color-body-background: #c8c7c7;
+    --color-bogy-main: #9d9d9d;
+    --color-shadow: #acaaaa;
+  }
+}

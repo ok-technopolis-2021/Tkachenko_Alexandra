@@ -1,0 +1,17 @@
+.data {
+  text-align: center;
+  align-self: center;
+
+  .data__name {
+    font-weight: bold;
+    font-size: 62px;
+    line-height: 71px;
+    margin: 10px;
+  }
+
+  .data__profession {
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 25px;
+  }
+}
