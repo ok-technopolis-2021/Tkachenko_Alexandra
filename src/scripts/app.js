@@ -1,61 +1,41 @@
+class Skill {
+    constructor(name, ratio, id) {
+        this.name = name;
+        this.ratio = ratio;
+        this.id = id;
+    }
+}
+
 class SkillView {
     skill
-
     skillItem;
-    skillItemBox;
-    skillTitle;
-    skillName;
-    skillRatio;
-    progressbar;
-    progressbarStrip;
-    skillsButton;
 
     constructor(skill) {
         this.skill = skill;
-
         this.skillItem = document.createElement("section");
-        this.skillItem.id = this.skill.id + this.skill.name;
+        this.skillItem.className = "skills-item";
+        this.skillItem.setAttribute("id", skill.id + skill.name);
+        this.skillItem.innerHTML =
+            `<div class="skills-item-inner">
+                <div class="skill-item-title">
+                    <div>${skill.name}</div>
+                    <div id="${skill.id + skill.name + "skill"}">${skill.ratio}%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-bar-load" id="${this.skill.id + this.skill.name + "bar"}" style="width: ${skill.ratio}%;"></div>
+                </div>
+                </div>
+                <div class="__delete-image" id="${this.skill.id}"></div>`;
 
-        this.skillItemBox = document.createElement("div");
-        this.skillTitle = document.createElement("div");
-        this.skillName = document.createElement("div");
-        this.skillRatio = document.createElement("div");
-        this.progressbar = document.createElement("div");
-        this.progressbarStrip = document.createElement("div");
-        this.skillsButton = document.createElement("div");
-
-        this.skillItem.classList.add("skills-item");
-        this.skillItemBox.classList.add("skills-item-inner");
-        this.skillTitle.classList.add("skill-item-title");
-        this.progressbar.classList.add("progress-bar");
-        this.skillsButton.classList.add("__delete-image");
-        this.progressbarStrip.classList.add("progress-bar-load")
-
-        this.skillRatio.id = this.skill.id + this.skill.name + "skill-percent"
-        this.progressbarStrip.id = this.skill.id + this.skill.name + "progress-bar-load"
-        this.skillsButton.id = this.skill.id;
-
-        this.skillName.innerText = skill.name;
-        this.skillRatio.innerText = skill.ratio + "%";
-        this.progressbarStrip.style.width = this.skillRatio.innerText;
-
-        this.skillItem.appendChild(this.skillItemBox);
-        this.skillItem.appendChild(this.skillsButton);
-        this.skillItemBox.appendChild(this.skillTitle);
-        this.skillTitle.appendChild(this.skillName);
-        this.skillTitle.appendChild(this.skillRatio);
-        this.skillItemBox.appendChild(this.progressbar);
-        this.progressbar.appendChild(this.progressbarStrip);
-
-        this.skillsButton.addEventListener("click", () => skillsHandler.deleteSkill(this.skillsButton));
+        this.skillItem.addEventListener("click", () => skillsHandler.deleteSkill(this.skillItem));
     }
 
-    rewriteSkill(newRatio) {
+    rewrite(newRatio) {
         this.skill.ratio = newRatio;
-        this.skillRatio = document.getElementById(this.skill.id + this.skill.name + "skill-percent")
-        this.progressbarStrip = document.getElementById(this.skill.id + this.skill.name + "progress-bar-load");
-        this.skillRatio.innerText = newRatio + "%";
-        this.progressbarStrip.style.width = this.skillRatio.innerText;
+        this.persent = document.getElementById(this.skill.id + this.skill.name + "skill");
+        this.progressbar = document.getElementById(this.skill.id + this.skill.name + "bar");
+        this.persent.innerText = newRatio + "%";
+        this.progressbar.style.width = this.persent.innerText;
     }
 }
 
@@ -65,7 +45,7 @@ class SkillsHandler {
     presentationSkills;
 
     constructor() {
-        this.skills = [new Skill("Be late with deadlines", 99, "1")];
+        this.skills = [new Skill("Be sad", 99, 199)];
         this.arrayOfViewsSkill = [];
         this.presentationSkills = document.querySelector(".skills-list");
         for (let i = 0; i < this.skills.length; i++) {
@@ -76,44 +56,38 @@ class SkillsHandler {
 
     addNewSkillItem(skill) {
         for (let i = 0; i < this.skills.length; ++i) {
-            if (this.skills[i].name === skill.name) {
-                if (this.skills[i].ratio === skill.ratio) {
-                    return;
-                }
+            if (this.skills[i].name !== skill.name) {
+                continue;
+            }
+            if (this.skills[i].ratio !== skill.ratio) {
                 if (this.skills[i].ratio !== skill.ratio) {
                     this.skills[i].ratio = skill.ratio;
-                    this.arrayOfViewsSkill[i].rewriteSkill(this.skills[i].ratio);
+                    this.arrayOfViewsSkill[i].rewrite(this.skills[i].ratio);
                     return;
                 }
+            } else {
+                return;
             }
         }
-        if (this.skills.length >= 4) {
+        if (this.skills.length >= 6) {
             alert("Too much skills");
             return;
         }
-        skill.id = this.skills.length;
+        skill.id = skill.name + skill.ratio;
         this.skills.push(skill);
         this.arrayOfViewsSkill.push(new SkillView(skill));
         this.presentationSkills.appendChild(this.arrayOfViewsSkill[this.skills.length - 1].skillItem);
     }
 
     deleteSkill(node) {
-        this.skills.splice(node.id);
-        this.arrayOfViewsSkill.splice(node.id);
-        node.parentNode.remove();
-    }
-}
-
-class Skill {
-    constructor(name, ratio, id) {
-        this.name = name;
-        this.ratio = ratio;
-        this.id = id;
+        this.skills.splice(node.id, 1);
+        this.arrayOfViewsSkill.splice(node.id, 1);
+        node.remove();
     }
 }
 
 const form = document.forms[0];
-const [first, second] = form.getElementsByClassName("skill__input");
+const [first, second] = form.querySelectorAll(".skill__input");
 const addition = document.querySelector(".skill-insertion_swim");
 skillsHandler = new SkillsHandler();
 
@@ -124,8 +98,8 @@ form.addEventListener("submit", function (event) {
     addition.classList.add("__hidden");
 });
 
-document.addEventListener("DOMContentLoader", movePage);
 
+document.addEventListener("DOMContentLoader", movePage);
 document.getElementById("add-new-skill").addEventListener("click", () => addition.classList.toggle("__hidden"));
 
 function movePage() {
