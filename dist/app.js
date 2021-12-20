@@ -27,7 +27,7 @@ class SkillView {
                 </div>
                 <div class="__delete-image" id="${this.skill.id}"></div>`;
 
-        this.skillItem.addEventListener("click", () => skillsHandler.deleteSkill(this.skillItem));
+        this.skillItem.addEventListener("click", () => skillsController.deleteSkill(this.skillItem));
     }
 
     rewrite(newRatio) {
@@ -39,18 +39,18 @@ class SkillView {
     }
 }
 
-class SkillsHandler {
+class SkillsController {
     skills;
-    arrayOfViewsSkill;
-    presentationSkills;
+    viewsSkill;
+    visualSkills;
 
     constructor() {
         this.skills = [new Skill("Be sad", 99, 199)];
-        this.arrayOfViewsSkill = [];
-        this.presentationSkills = document.querySelector(".skills-list");
+        this.viewsSkill = [];
+        this.visualSkills = document.querySelector(".skills-list");
         for (let i = 0; i < this.skills.length; i++) {
-            this.arrayOfViewsSkill.push(new SkillView(this.skills[i]));
-            this.presentationSkills.appendChild(this.arrayOfViewsSkill[i].skillItem);
+            this.viewsSkill.push(new SkillView(this.skills[i]));
+            this.visualSkills.appendChild(this.viewsSkill[i].skillItem);
         }
     }
 
@@ -62,7 +62,7 @@ class SkillsHandler {
             if (this.skills[i].ratio !== skill.ratio) {
                 if (this.skills[i].ratio !== skill.ratio) {
                     this.skills[i].ratio = skill.ratio;
-                    this.arrayOfViewsSkill[i].rewrite(this.skills[i].ratio);
+                    this.viewsSkill[i].rewrite(this.skills[i].ratio);
                     return;
                 }
             } else {
@@ -75,13 +75,13 @@ class SkillsHandler {
         }
         skill.id = skill.name + skill.ratio;
         this.skills.push(skill);
-        this.arrayOfViewsSkill.push(new SkillView(skill));
-        this.presentationSkills.appendChild(this.arrayOfViewsSkill[this.skills.length - 1].skillItem);
+        this.viewsSkill.push(new SkillView(skill));
+        this.visualSkills.appendChild(this.viewsSkill[this.skills.length - 1].skillItem);
     }
 
     deleteSkill(node) {
         this.skills.splice(node.id, 1);
-        this.arrayOfViewsSkill.splice(node.id, 1);
+        this.viewsSkill.splice(node.id, 1);
         node.remove();
     }
 }
@@ -89,11 +89,11 @@ class SkillsHandler {
 const form = document.forms[0];
 const [first, second] = form.querySelectorAll(".skill__input");
 const addition = document.querySelector(".skill-insertion_swim");
-skillsHandler = new SkillsHandler();
+skillsController = new SkillsController();
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    skillsHandler.addNewSkillItem(new Skill(first.value, second.value));
+    skillsController.addNewSkillItem(new Skill(first.value, second.value));
     form.reset();
     addition.classList.add("__hidden");
 });
