@@ -327,14 +327,16 @@ body {
 }
 :root {
   --color-text: #FFFFFF;
+  --color-text-input: #614444;
   --color-body-background: #444444;
   --color-body-main: #222222;
   --color-shadow: #c4c4c4;
   --color-skill-progress: #e788a5;
 }
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --color-text: #2d2b2b;
+    --color-text-input: #614444;
     --color-body-background: #c8c7c7;
     --color-body-main: #9d9d9d;
     --color-shadow: #acaaaa;
@@ -488,7 +490,7 @@ body {
   font-size: 20px;
   padding: 0 10px;
   border: 2px solid var(--color-body-main);
-  color: var(--color-text);
+  color: var(--color-text-input);
 }
 .skills .skills-item {
   margin: 20px 0;
