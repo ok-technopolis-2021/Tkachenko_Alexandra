@@ -1,0 +1,27 @@
+@import "reset.scss";
+@import "style.scss";
+
+@import "card/card.scss";
+
+@import "card/resume/resume.scss";
+@import "card/resume/theme.scss";
+
+@import "card/resume/__copyrights/resume__copyrights.scss";
+
+@import "card/resume/wrapper/about/about.scss";
+@import "card/resume/wrapper/avatar/avatar.scss";
+@import "card/resume/wrapper/download-cv/download-cv.scss";
+@import "card/resume/wrapper/social-network/social-network.scss";
+@import "card/resume/wrapper/wrapper.scss";
+
+@import "card/information/information.scss";
+@import "card/information/data/data.scss";
+@import "card/button.scss";
+
+@import "card/information/data/move-page.scss";
+
+@import "card/information/data/skills/skills.scss";
+@import "card/information/data/skills/__delete-image.scss";
+@import "card/information/data/skills/__add-image.scss";
+@import "card/information/data/skills/skills.scss";
+

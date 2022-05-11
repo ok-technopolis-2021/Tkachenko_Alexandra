@@ -1,0 +1,17 @@
+.download-cv {
+  margin: 40px;
+  width: 168px;
+  height: 46px;
+  align-self: center;
+  overflow: hidden;
+  transition-duration: 0.4s;
+
+  .download-cv__text {
+    font-size: 17px;
+    line-height: 20px;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+}
+
+
